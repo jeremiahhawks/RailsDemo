@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "filename": "the_phantom_menace.jpg",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

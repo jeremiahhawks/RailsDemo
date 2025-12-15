@@ -8,14 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = CatalogViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            // Home Tab
+            NavigationStack {
+                if viewModel.rails.isEmpty {
+                    Text("Unable to load data")
+                        .foregroundColor(.secondary)
+                } else {
+                    ScrollView {
+                        VStack(spacing: 24) {
+                            ForEach(viewModel.rails) { rail in
+                                RailView(rail: rail)
+                            }
+                        }
+                        .padding(.vertical)
+                    }
+                    .navigationTitle("Star Wars")
+                    .navigationDestination(for: CatalogItem.self) { item in
+                        DetailView(item: item)
+                    }
+                }
+            }
+            .tabItem {
+                Label("Home", systemImage: "house.fill")
+            }
+
+            // Profile Tab
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person.fill")
+                }
         }
-        .padding()
     }
 }
 

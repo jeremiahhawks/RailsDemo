@@ -14,9 +14,8 @@ struct DetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 // Large Image
-                AsyncImageAsset(name: item.imageName)
+                AsyncImageAsset(name: item.imageName, contentMode: .fit)
                     .frame(maxWidth: .infinity, maxHeight: 400)
-                    .clipped()
 
                 VStack(alignment: .leading, spacing: 12) {
                     // Title

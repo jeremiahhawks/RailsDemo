@@ -20,7 +20,7 @@ struct RailView: View {
 
             // Horizontal ScrollView of cards
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
+                HStack(alignment: .top, spacing: 16) {
                     ForEach(rail.items) { item in
                         NavigationLink(value: item) {
                             PosterCardView(item: item)

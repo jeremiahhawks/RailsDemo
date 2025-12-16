@@ -9,13 +9,19 @@ import SwiftUI
 
 struct AsyncImageAsset: View {
     let name: String
+    let contentMode: ContentMode
+
+    init(name: String, contentMode: ContentMode = .fill) {
+        self.name = name
+        self.contentMode = contentMode
+    }
 
     var body: some View {
         Group {
             if let image = UIImage(named: name) {
                 Image(uiImage: image)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: contentMode)
             } else {
                 // Fallback to system image if asset not found
                 Image(systemName: "photo")

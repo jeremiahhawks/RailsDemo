@@ -14,7 +14,7 @@ struct ProfileView: View {
                 VStack(spacing: 28) {
                     // Header Section
                     VStack(spacing: 12) {
-                        AsyncImageAsset(name: "placeholder")
+                        AsyncImageAsset(name: "profile_image")
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.gray.opacity(0.3), lineWidth: 2))
